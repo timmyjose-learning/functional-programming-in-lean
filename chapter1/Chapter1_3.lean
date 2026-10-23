@@ -32,15 +32,15 @@ def spaceBetween (before : String) (after : String) : String :=
 def joinStringsWith (sep : String) (before : String) (after : String) : String :=
   String.append before (String.append sep after)
 
-#eval (joinStringsWith ", " hello lean) = "Hello, Lean"
-#eval (joinStringsWith ", " "one" "and another") = "one, and another"
+#guard (joinStringsWith ", " hello lean) == "Hello, Lean"
+#guard (joinStringsWith ", " "one" "and another") == "one, and another"
 
 --- The type of `joinStringsWith ": " is `String -> String -> String`
 #check (joinStringsWith ": ")
 
 def volume (height : Nat) (width : Nat) (depth : Nat): Nat := height * width * depth
 
-#eval (volume 10 20 30) = 6000
+#guard (volume 10 20 30) == 6000
 
 -- type aliases
 def Str : Type := String
